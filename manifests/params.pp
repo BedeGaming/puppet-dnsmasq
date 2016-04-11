@@ -1,4 +1,8 @@
 class dnsmasq::params {
+
+  $service_manage = true
+  $service_ensure = 'running'
+
   case $::osfamily {
     debian: {
       $package_name = 'dnsmasq'

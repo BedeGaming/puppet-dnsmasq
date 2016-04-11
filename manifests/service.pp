@@ -1,8 +1,10 @@
 class dnsmasq::service {
-  service { $dnsmasq::params::service_name:
-    ensure     => 'running',
-    enable     => true,
-    hasrestart => true,
-    hasstatus  => true,
+  if ($dnsmasq::service_manage) {
+    service { $dnsmasq::params::service_name:
+      ensure     => $dnsmasq::service_ensure,
+      enable     => true,
+      hasrestart => true,
+      hasstatus  => true,
+    }
   }
 }

@@ -1,4 +1,7 @@
-class dnsmasq {
+class dnsmasq (
+  $service_manage = $dnsmasq::params::service_manage,
+  $service_ensure = $dnsmasq::params::service_ensure,
+) {
   include dnsmasq::params
 
   anchor { 'dnsmasq::start': }
