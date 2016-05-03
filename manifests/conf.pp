@@ -1,11 +1,13 @@
 define dnsmasq::conf (
-  $ensure  = 'present',
-  $prio    = 10,
-  $source  = undef,
-  $content = undef) {
+  $ensure     = 'present',
+  $prio       = 10,
+  $source     = undef,
+  $content    = undef,
+  $config_dir = $dnsmasq::config_dir,
+) {
   include dnsmasq
 
-  file { "${dnsmasq::params::config_dir}${prio}-${name}":
+  file { "${config_dir}${prio}-${name}":
     ensure  => $ensure,
     owner   => 'root',
     group   => 'root',
