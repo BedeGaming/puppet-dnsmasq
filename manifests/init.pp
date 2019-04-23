@@ -2,6 +2,7 @@ class dnsmasq (
   $service_manage = $dnsmasq::params::service_manage,
   $service_ensure = $dnsmasq::params::service_ensure,
   $config_dir     = $dnsmasq::params::config_dir,
+  $package_ensure = 'installed',
 ) {
   include dnsmasq::params
 
